@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>VGR's D2R Giveaway Organizer</title>
+    <meta name="description" content="Item Display Tool for D2R" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-transparent">
+    <div class="cc">
+        <div class="controls">
+            <button class="newgame" onclick="NewGame()">New Game</button>
+            <button class="undo" onclick="UndoLast()">Undo</button>
+            <button class="undo" onclick="BlackOut()">Hide / Show</button>
+            <h1>Number of Items: 30, 50, or 100</h1>
+            <input id="itemcount" value="100" />
+            <h1>Number of Locations:</h1>
+            <input id="locations" value="12" />
+            <h1>Placement Locations:</h1>
+            <div id="placement">0</div>
+            <h1>Order of Locations Hit:</h1>
+            <div id="hits">0</div>
+            <h1>Last Ship Hit:</h1>
+            <div id="ship">0</div>
+        </div>
+        <div class="board" id="board">
+            <div id="root">
+            </div>
+        </div>
+    </div>
+    <script src="battleship.js" async defer></script>
+</body>
+
+</html>

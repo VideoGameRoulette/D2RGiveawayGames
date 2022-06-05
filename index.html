@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>VGR's D2R Giveaway Organizer</title>
+    <title>VGR's D2R Giveaway Games</title>
     <meta name="description" content="Item Display Tool for D2R" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,28 +12,68 @@
 </head>
 
 <body class="bg-transparent">
-    <div class="cc">
-        <div class="controls">
-            <button class="newgame" onclick="NewGame()">New Game</button>
-            <button class="undo" onclick="UndoLast()">Undo</button>
-            <button class="undo" onclick="BlackOut()">Hide / Show</button>
-            <h1>Number of Items: 30, 50, or 100</h1>
-            <input id="itemcount" value="100" />
-            <h1>Number of Locations:</h1>
-            <input id="locations" value="12" />
-            <h1>Placement Locations:</h1>
-            <div id="placement">0</div>
-            <h1>Order of Locations Hit:</h1>
-            <div id="hits">0</div>
-            <h1>Last Ship Hit:</h1>
-            <div id="ship">0</div>
+    <div class="w-[100vw] h-[100vh] grid grid-rows-[75px_auto] bg-slate-800">
+        <div class="bg-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div
+                    class="flex justify-between items-center border-b-2 border-slate-500 py-6 md:justify-start md:space-x-10">
+                    <div class="flex justify-start lg:w-0 lg:flex-1">
+                        <a href="/">
+                            <span class="sr-only">Workflow</span>
+                            <div class="text-white font-bold">D2R Giveaway Games</div>
+                        </a>
+                    </div>
+                    <nav class="flex space-x-10">
+                        <a href="/battleship" class="text-base font-medium text-gray-500 hover:text-white"> Battleship </a>
+                        <a href="/jeopardy" class="text-base font-medium text-gray-500 hover:text-white"> Jeopardy </a>
+                        <a href="/minefield" class="text-base font-medium text-gray-500 hover:text-white"> Minefield </a>
+                    </nav>
+                </div>
+            </div>
         </div>
-        <div class="board" id="board">
-            <div id="root">
+        <div class="w-full h-full flex flex-col justify-center items-center">
+            <div class="container p-4 text-center">
+                <h1 class="text-xl font-bold text-yellow-500">Welcome to VideoGameRoulette's Giveaway Game Haven</h1>
+                <p>Special Thanks to Zeeger's For Original Idea</p>
+            </div>
+            <div class="container p-4 text-center mb-4">
+                <h1 class="text-xl font-bold text-yellow-500">Games Available</h1>
+                <p>Battleship, Jeopardy, Minefield</p>
+            </div>
+            
+            <div class="container p-4 bg-slate-600 border border-white rounded-md text-left mb-4">
+                <h1 class="text-xl font-bold text-yellow-500">Battleship</h1>
+                <p>Each player is given a chance to choose a location if their shot hits a ship they will given another shot til they miss or sink a ship.</p>
+                <p>5 Ships Ranging from Size's 2-5 will be placed on the board and prize's will be established for each corresponding ship sink a ship win a prize!</p>
+            
+                <h1 class="text-xl font-bold text-yellow-500 mt-4">How To Play</h1>
+                <p>Coming Soon...</p>
+            </div>
+
+            <div class="container p-4 bg-slate-600 border border-white rounded-md text-left mb-4">
+                <h1 class="text-xl font-bold text-yellow-500">Jeopardy</h1>
+                <p>Each player is given a chance to enter a queue to pick a location for a chance to with an item and a possible bonus prize if Daily Double is drawn.</p>
+                <p>If Daily Double is drawn then player will be given 30 seconds to answer a random question for a chance to win a bonus prize!</p>
+            
+                <h1 class="text-xl font-bold text-yellow-500 mt-4">How To Play</h1>
+                <p>Coming Soon...</p>
+            </div>
+
+            <div class="container p-4 bg-slate-600 border border-white rounded-md text-left mb-4">
+                <h1 class="text-xl font-bold text-yellow-500">Minefield</h1>
+                <p>Each player is given a 3 shots to choose a location if their shot hits a mine they will win a prize.</p>
+                <p>If a mine is hit prior to all 3 numbers being opened then it'll cut off as soon as the mine is popped off.</p>
+            
+                <h1 class="text-xl font-bold text-yellow-500 mt-4">How To Play</h1>
+                <p>Coming Soon...</p>
             </div>
         </div>
     </div>
-    <script src="script.js" async defer></script>
 </body>
 
 </html>
+
+<!-- <div class="p-4 bg-slate-600 border border-white rounded-md text-center mb-4">
+    <h1 class="text-xl font-bold text-yellow-500"></h1>
+    <p></p>
+</div> -->
