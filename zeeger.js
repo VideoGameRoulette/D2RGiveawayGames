@@ -60,20 +60,26 @@ function NewGame() {
 	getData();
 }
 
-function SetLocation(id) {
-	if (checkedItems.includes(id)) {
-		checkedItems = checkedItems.filter(item => { return item !== id });
+function SetLocation(id, idx) {
+	const current = document.getElementById(id);
+	if (checkedItems.includes(idx)) {
+		checkedItems = checkedItems.filter(item => { return item !== idx });
 	}
 	else {
-		checkedItems.push(id);
+		checkedItems.push(idx);
 	}
 	hits.innerHTML = checkedItems.toString();
-	if (ddLocations.includes(id)) {
-		checkedItemsDD.push(id);
+	if (ddLocations.includes(idx)) {
+		checkedItemsDD.push(idx);
 		doubleshits.innerHTML = checkedItemsDD.toString();
 		doubles.innerHTML = id;
 	}
-	getData();
+	if (ddLocations.includes(idx)) {
+		current.innerHTML = `<video width="98.8" height="98.8" autoplay="1"><source src="dailydouble.webm" type="video/webm"></video>`;
+	}
+	else {
+		current.innerHTML = `<video width="98.8" height="98.8" autoplay="1"><source src="default.webm" type="video/webm"></video>`;
+	}
 }
 
 function SetLocationBonus(id) {
@@ -86,31 +92,8 @@ function SetLocationBonus(id) {
 	getData();
 }
 
-function UndoLast() {
-	checkedItems.pop();
-}
-
 function getData() {
-	main.innerHTML = "";
-	main2.innerHTML = "";
 	main3.innerHTML = "";
-
-	for (var i = 0; i < MAIN_ITEMS; i++) {
-		if (checkedItems.includes(i + 1)) {
-			if (ddLocations.includes(i + 1)) {
-				main.innerHTML += `<div class="item2dd">DD<div>`;
-			}
-			else {
-				main.innerHTML += `<div class="item2alt"><div>`;
-			}
-		}
-		else {
-			main.innerHTML += `<button type="button" class="item2" onclick="SetLocation(${i + 1})">${i + 1}</button>`;
-		}
-	}
-
-	main2.innerHTML += `<button type="button" class="bonus" onclick="SetLocation(${i + 1})">DAILY DOUBLE BONUS</button>`;
-
 	for (var i = 0; i < EXTRA_ITEMS; i++) {
 		if (checkedItems2.includes(i + 1)) {
 			main3.innerHTML += `<div class="item1bonus"><div>`;
