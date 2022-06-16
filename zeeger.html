@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>VGR's D2R Giveaway Organizer</title>
+    <meta name="description" content="Item Display Tool for D2R" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="zeeger.css" />
+</head>
+
+<body>
+    <div class="cc">
+        <div class="controls">
+            <button class="newgame" onclick="NewGame()">New Game</button>
+            <button class="undo" onclick="UndoLast()">Undo</button>
+            <button class="undo" onclick="BlackOut()">Hide / Show</button>
+            <h1>Number of Double Jepopardy Locations:</h1>
+            <input id="locations" value="10" />
+            <h1>Double Jep Locations:</h1>
+            <div id="placement">0</div>
+            <h1>Order of Locations Hit:</h1>
+            <div id="hits">0</div>
+            <h1>Order of Double Jepopardy Locations Hit:</h1>
+            <div id="doubleshits">0</div>
+            <h1>Last Double Jepopardy Hit:</h1>
+            <div id="doubles">0</div>
+        </div>
+        <div class="board" id="board">
+            <div class="table">
+                <div id="root">
+                </div>
+                <div id="root2">
+                </div>
+                <div id="root3">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="zeeger.js" async defer></script>
+</body>
+
+</html>
