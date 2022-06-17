@@ -54,7 +54,7 @@ body {
 
 #root {
 	width: 494px;
-	height: 390px;
+	height: 400.2px;
 	display: grid;
 	grid-template-columns: 
 	 98.8px 
@@ -63,21 +63,17 @@ body {
 	 98.8px 
 	 98.8px;
 	border: 1px solid #a59263;
-	background: black;
 }
 
 #root2 {
 	position: relative;
-	top: 10px;
 	width: 494px;
 	height: 48px;
 	border: 1px solid #a59263;
-	background: black;
 }
 
 #root3 {
 	position: relative;
-	top: 10px;
 	width: 494px;
 	height: 49.4px;
 	display: grid;
@@ -116,10 +112,9 @@ body {
 }
 
 .item1dd {
-	min-width: 49.4px;
-	min-height: 49.4px;
+	width: 49.4px;
+	height: 49.4px;
 	border: 1px solid #a59263;
-	background: black;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -128,8 +123,8 @@ body {
 }
 
 .item1bonus {
-	min-width: 49.4px;
-	min-height: 49.4px;
+	width: 49.4px;
+	height: 49.4px;
 	border: 1px solid #a59263;
 	display: flex;
 	justify-content: center;
@@ -175,7 +170,7 @@ body {
 	align-items: center;
 	color: #a59263;
 	font-weight: 700;
-	background: black;
+	background: url('reveal.png') no-repeat;
 }
 
 .item2 {
