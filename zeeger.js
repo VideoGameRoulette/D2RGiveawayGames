@@ -62,6 +62,7 @@ function NewGame() {
 
 function SetLocation(id, idx) {
 	const current = document.getElementById(id);
+	const vod = `video${idx}`;
 	if (checkedItems.includes(idx)) {
 		checkedItems = checkedItems.filter(item => { return item !== idx });
 	}
@@ -75,11 +76,17 @@ function SetLocation(id, idx) {
 		doubles.innerHTML = id;
 	}
 	if (ddLocations.includes(idx)) {
-		current.innerHTML = `<video width="98.8" height="98.8" autoplay="1"><source src="dailydouble.webm" type="video/webm"></video>`;
+		current.innerHTML = `<video id="${vod}" width="98.8" height="98.8" autoplay="1"><source src="dailydouble.webm" type="video/webm"></video>`;
 	}
 	else {
-		current.innerHTML = `<video width="98.8" height="98.8" autoplay="1"><source src="default.webm" type="video/webm"></video>`;
+		current.innerHTML = `<video id="${vod}" width="98.8" height="98.8" autoplay="1"><source src="default.webm" type="video/webm"></video>`;
 	}
+	const currentVOD = document.getElementById(vod);
+	currentVOD.onended = function () {
+		current.style.background = "url('reveal.png')";
+		currentVOD.style.width = "80px";
+		currentVOD.style.height = "80px";
+	};
 }
 
 function SetLocationBonus(id) {
