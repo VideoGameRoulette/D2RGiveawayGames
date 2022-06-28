@@ -1,13 +1,12 @@
 const checkedItems = [];
-const shipLocations = [];
+var shipLocations = [];
 const POLLING_RATE = 1000;
-var ITEMS = 0;
+var ITEMS = 100;
 var SHIPS = 0;
 
 const main = document.getElementById('root');
+const internal = document.getElementById('rootinternal');
 const board = document.getElementById('board');
-const locations = document.getElementById('locations');
-const itemcount = document.getElementById('itemcount');
 const placement = document.getElementById('placement');
 const hits = document.getElementById('hits');
 const ship = document.getElementById('ship');
@@ -30,10 +29,6 @@ function BlackOut() {
 }
 
 function ResetValues() {
-	const { value: loc } = locations;
-	SHIPS = parseInt(loc);
-	const { value: itm } = itemcount;
-	ITEMS = parseInt(itm);
 	checkedItems.length = 0;
 	shipLocations.length = 0;
 	hits.innerHTML = 0;
@@ -42,18 +37,27 @@ function ResetValues() {
 
 function NewGame() {
 	ResetValues();
-	if (ITEMS < SHIPS) return alert('Not enough locations for items please increase items size or reduce locations');
-	while (shipLocations.length < SHIPS) {
-		let rnd = Math.floor(Math.random() * ITEMS);
-		if (!shipLocations.includes(rnd + 1)) {
-			shipLocations.push(rnd + 1);
-		}
-	}
-	placement.innerHTML = shipLocations.toString();
 	getData();
 }
 
 function SetLocation(id) {
+	if (shipLocations.includes(id)) {
+		shipLocations = shipLocations.filter(item => { return item !== id });
+		if (shipLocations.length === 0) {
+			placement.innerHTML = "0";
+		}
+		else {
+			placement.innerHTML = shipLocations.toString();
+		}
+		getData();
+		return;
+	}
+	shipLocations.push(id);
+	placement.innerHTML = shipLocations.toString();
+	getData();
+}
+
+function CheckLocation(id) {
 	if (checkedItems.includes(id)) {
 		checkedItems = checkedItems.filter(item => { return item !== id });
 	}
@@ -67,11 +71,8 @@ function SetLocation(id) {
 	getData();
 }
 
-function UndoLast() {
-	checkedItems.pop();
-}
-
 function getData() {
+	internal.innerHTML = "";
 	main.innerHTML = "";
 	for (var i = 0; i < ITEMS; i++) {
 		if (checkedItems.includes(i + 1)) {
@@ -83,7 +84,15 @@ function getData() {
 			}
 		}
 		else {
-			main.innerHTML += `<button type="button" class="item1" onclick="SetLocation(${i + 1})">${i + 1}</button>`;
+			main.innerHTML += `<button type="button" class="item1" onclick="CheckLocation(${i + 1})">${i + 1}</button>`;
+		}
+	}
+	for (var i = 0; i < ITEMS; i++) {
+		if (shipLocations.includes(i + 1)) {
+			internal.innerHTML += `<div class="buttonOn" onclick="SetLocation(${i + 1})">${i + 1}</div>`;
+		}
+		else {
+			internal.innerHTML += `<div class="buttonOff" onclick="SetLocation(${i + 1})">${i + 1}</div>`;
 		}
 	}
 }
