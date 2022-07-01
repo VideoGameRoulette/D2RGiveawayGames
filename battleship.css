@@ -96,53 +96,76 @@ body {
 	 49.4px 
 	 49.4px 
 	 49.4px;
+	border: 1px solid #B4D6E4;
+	background: transparent;
+}
+
+#videohit, #videomiss {
+	display: none;
+	position: absolute;
+	z-index: -1;
+	top: 220px;
+	left: calc(960px + 162px);
+	width: 494px;
+	height: 494px;
 	border: 1px solid #a59263;
 	background: black;
 }
 
 .item1 {
-	min-width: 49.4px;
-	min-height: 49.4px;
-	border: 1px solid #a59263;
+	width: 49.4px;
+	height: 49.4px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	color: #a59263;
+	color: #B4D6E4;
 	font-weight: 700;
+	background: #2B5F8C;
+}
+
+#fill {
+	width: 49.4px;
+	height: 49.4px;
+	background: #2B5F8C;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #B4D6E4;
 }
 
 .item1alt {
 	min-width: 49.4px;
 	min-height: 49.4px;
-	border: 1px solid #a59263;
-	background: red;
+	border: 1px solid #B4D6E4;
+	background: transparent;
 }
 
 .item1dd {
-	min-width: 49.4px;
-	min-height: 49.4px;
-	border: 1px solid #a59263;
-	background: green;
+	width: 49.4px;
+	height: 49.4px;
+	border: 1px solid #B4D6E4;
+	background: transparent;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: #a59263;
+	color: #B4D6E4;
 	font-weight: 700;
 }
 
 .item2 {
-	border: 1px solid #a59263;
+	border: 1px solid #B4D6E4;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	color: #a59263;
+	color: #B4D6E4;
 	font-weight: 700;
 }
 
 .item2alt {
-	border: 1px solid #a59263;
+	border: 1px solid #B4D6E4;
 	background: red;
 }
 
@@ -152,15 +175,15 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: #a59263;
+	color: #B4D6E4;
 	font-weight: 700;
 }
 
 .buttonOff {
 	width: 49.4px;
 	height: 49.4px;
-	border: 1px solid #a59263;
-	color: #a59263;
+	border: 1px solid #B4D6E4;
+	color: #B4D6E4;
 	background-color: black;
 	display: flex;
 	justify-content: center;
@@ -171,7 +194,7 @@ body {
 .buttonOn {
 	width: 49.4px;
 	height: 49.4px;
-	border: 1px solid #a59263;
+	border: 1px solid #B4D6E4;
 	color: #a59263;
 	background-color: green;
 	display: flex;

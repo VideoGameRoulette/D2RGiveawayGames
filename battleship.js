@@ -5,6 +5,7 @@ var ITEMS = 100;
 var SHIPS = 0;
 
 const main = document.getElementById('root');
+//const videoRadar = document.getElementById('videooverlay');
 const internal = document.getElementById('rootinternal');
 const board = document.getElementById('board');
 const placement = document.getElementById('placement');
@@ -31,6 +32,7 @@ function BlackOut() {
 function ResetValues() {
 	checkedItems.length = 0;
 	shipLocations.length = 0;
+	placement.innerHTML = "0";
 	hits.innerHTML = 0;
 	ship.innerHTML = 0;
 }
@@ -58,6 +60,10 @@ function SetLocation(id) {
 }
 
 function CheckLocation(id) {
+	const videohit = document.getElementById('videohit');
+	const videomiss = document.getElementById('videomiss');
+
+
 	if (checkedItems.includes(id)) {
 		checkedItems = checkedItems.filter(item => { return item !== id });
 	}
@@ -66,8 +72,28 @@ function CheckLocation(id) {
 	}
 	hits.innerHTML = checkedItems.toString();
 	if (shipLocations.includes(id)) {
+		videohit.play();
 		ship.innerHTML = id;
 	}
+	else {
+		videomiss.play();
+	}
+	videohit.onplay = function () {
+		videohit.style.display = "block";
+		videohit.style.zIndex = 10;
+	};
+	videohit.onended = function () {
+		videohit.style.display = "none";
+		videohit.style.zIndex = -1;
+	};
+	videomiss.onplay = function () {
+		videomiss.style.display = "block";
+		videomiss.style.zIndex = 10;
+	};
+	videomiss.onended = function () {
+		videomiss.style.display = "none";
+		videomiss.style.zIndex = -1;
+	};
 	getData();
 }
 
@@ -77,14 +103,14 @@ function getData() {
 	for (var i = 0; i < ITEMS; i++) {
 		if (checkedItems.includes(i + 1)) {
 			if (shipLocations.includes(i + 1)) {
-				main.innerHTML += `<div class="item1dd">X<div>`;
+				main.innerHTML += `<div class="item1dd"><img src="https://cdn.discordapp.com/attachments/975467197906432060/992236511762333706/Battleship_Explode.png"/><div>`;
 			}
 			else {
 				main.innerHTML += `<div class="item1alt"><div>`;
 			}
 		}
 		else {
-			main.innerHTML += `<button type="button" class="item1" onclick="CheckLocation(${i + 1})">${i + 1}</button>`;
+			main.innerHTML += `<button type="button" class="item1" onclick="CheckLocation(${i + 1})"><div id="fill">${i + 1}</div></button>`;
 		}
 	}
 	for (var i = 0; i < ITEMS; i++) {
